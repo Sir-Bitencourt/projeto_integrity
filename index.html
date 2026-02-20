@@ -2,8 +2,9 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Integrity Contábil – Proposta Edison</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Integrity Contábil – Proposta Edison (Responsivo)</title>
     <style>
         * {
             margin: 0;
@@ -12,18 +13,18 @@
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, Arial, sans-serif;
             background-color: #f2f5f9;
             color: #1e2b3a;
             line-height: 1.5;
-            padding: 40px 20px;
+            padding: 20px;
         }
 
         .document {
             max-width: 1200px;
             margin: 0 auto;
             background-color: white;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             border-radius: 16px;
             overflow: hidden;
         }
@@ -31,26 +32,28 @@
         .header {
             background: linear-gradient(135deg, #0b2b44 0%, #123b5e 100%);
             color: white;
-            padding: 40px 50px;
+            padding: 30px 40px;
             border-bottom: 6px solid #f5b042;
         }
 
         .header h1 {
-            font-size: 42px;
+            font-size: 2.5rem;
             font-weight: 700;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.02em;
             margin-bottom: 8px;
+            line-height: 1.2;
         }
 
         .header h2 {
-            font-size: 24px;
+            font-size: 1.4rem;
             font-weight: 400;
-            opacity: 0.9;
+            opacity: 0.95;
             margin-bottom: 12px;
+            line-height: 1.3;
         }
 
         .header .date {
-            font-size: 18px;
+            font-size: 1.1rem;
             opacity: 0.8;
             border-left: 4px solid #f5b042;
             padding-left: 16px;
@@ -58,21 +61,21 @@
         }
 
         .content {
-            padding: 50px;
+            padding: 40px 50px;
         }
 
         h3 {
-            font-size: 28px;
+            font-size: 2rem;
             font-weight: 600;
             color: #0b2b44;
             margin-top: 40px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             border-bottom: 3px solid #f5b042;
             padding-bottom: 8px;
         }
 
         h4 {
-            font-size: 22px;
+            font-size: 1.5rem;
             font-weight: 600;
             color: #1e4a6d;
             margin-top: 30px;
@@ -80,7 +83,7 @@
         }
 
         h5 {
-            font-size: 18px;
+            font-size: 1.2rem;
             font-weight: 600;
             color: #2c3e50;
             margin-top: 25px;
@@ -89,7 +92,7 @@
 
         p {
             margin-bottom: 16px;
-            font-size: 16px;
+            font-size: 1rem;
         }
 
         .highlight-box {
@@ -100,24 +103,31 @@
             margin: 30px 0;
         }
 
+        /* Tabelas responsivas */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 20px 0 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 25px 0;
-            font-size: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            font-size: 0.95rem;
+            min-width: 600px; /* força rolagem em telas < 600px */
         }
 
         th {
             background-color: #0b2b44;
             color: white;
             font-weight: 600;
-            padding: 14px 10px;
+            padding: 14px 12px;
             text-align: left;
         }
 
         td {
-            padding: 14px 10px;
+            padding: 14px 12px;
             border-bottom: 1px solid #dde3ed;
             vertical-align: top;
         }
@@ -133,40 +143,32 @@
             font-weight: 700;
             padding: 6px 14px;
             border-radius: 40px;
-            font-size: 14px;
+            font-size: 0.85rem;
             margin-bottom: 15px;
-        }
-
-        .kpi-table td:first-child {
-            font-weight: 600;
         }
 
         .stars {
             color: #f5b042;
-            font-size: 18px;
+            font-size: 1.3rem;
             letter-spacing: 2px;
+            white-space: nowrap;
         }
 
         .footer {
             background-color: #0b2b44;
             color: white;
             text-align: center;
-            padding: 30px;
-            font-size: 14px;
+            padding: 25px 20px;
             border-top: 6px solid #f5b042;
         }
 
         .footer p {
             margin: 5px 0;
             opacity: 0.9;
+            font-size: 0.9rem;
         }
 
-        .page-break {
-            page-break-before: always;
-            margin-top: 40px;
-        }
-
-        ul {
+        ul, ol {
             margin-bottom: 20px;
             padding-left: 25px;
         }
@@ -175,13 +177,66 @@
             margin-bottom: 6px;
         }
 
-        .comparativo th, .comparativo td {
-            text-align: center;
-            vertical-align: middle;
+        /* Ajustes para mobile */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .header {
+                padding: 20px 20px;
+            }
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            .header h2 {
+                font-size: 1.1rem;
+            }
+            .content {
+                padding: 20px 20px;
+            }
+            h3 {
+                font-size: 1.6rem;
+                margin-top: 30px;
+            }
+            h4 {
+                font-size: 1.3rem;
+            }
+            h5 {
+                font-size: 1.1rem;
+            }
+            .table-responsive {
+                border-radius: 8px;
+            }
+            th, td {
+                padding: 10px 8px;
+                font-size: 0.85rem;
+            }
+            .stars {
+                font-size: 1rem;
+            }
         }
-        .comparativo td:first-child {
-            text-align: left;
-            font-weight: 500;
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            .header h2 {
+                font-size: 1rem;
+            }
+            .header .date {
+                font-size: 0.9rem;
+                padding-left: 12px;
+            }
+            h3 {
+                font-size: 1.4rem;
+            }
+            .content {
+                padding: 15px;
+            }
+            th, td {
+                padding: 8px 6px;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -220,13 +275,15 @@
         <p>A seguir, apresentamos <strong>quatro formatos possíveis</strong> de integração, todos desenhados para potencializar a nova estrutura e liberar Igor e Rodrigo para o que realmente importa: estratégia e crescimento.</p>
 
         <!-- Opção 1 -->
-        <h3>2. Opção 1 – Analista de Inteligência Operacional <span style="background:#f5b042; color:#0b2b44; padding:4px 10px; border-radius:30px; font-size:16px; margin-left:15px;">Recomendada</span></h3>
-        <table>
-            <tr><th style="width:30%">Item</th><th>Detalhamento</th></tr>
-            <tr><td><strong>Título sugerido</strong></td><td>Analista de Inteligência Operacional</td></tr>
-            <tr><td><strong>Reporta a</strong></td><td>Rodrigo (Gerente Geral Integrador)</td></tr>
-            <tr><td><strong>Missão</strong></td><td>Transformar dados operacionais em insights de performance, criar dashboards de acompanhamento e apoiar líderes na eliminação de gargalos.</td></tr>
-        </table>
+        <h3>2. Opção 1 – Analista de Inteligência Operacional <span style="background:#f5b042; color:#0b2b44; padding:4px 10px; border-radius:30px; font-size:0.9rem; margin-left:10px;">Recomendada</span></h3>
+        <div class="table-responsive">
+            <table>
+                <tr><th style="width:30%">Item</th><th>Detalhamento</th></tr>
+                <tr><td><strong>Título sugerido</strong></td><td>Analista de Inteligência Operacional</td></tr>
+                <tr><td><strong>Reporta a</strong></td><td>Rodrigo (Gerente Geral Integrador)</td></tr>
+                <tr><td><strong>Missão</strong></td><td>Transformar dados operacionais em insights de performance, criar dashboards de acompanhamento e apoiar líderes na eliminação de gargalos.</td></tr>
+            </table>
+        </div>
 
         <h5>Principais Responsabilidades</h5>
         <ul>
@@ -239,14 +296,16 @@
         </ul>
 
         <h5>Hard Skills Necessárias x Edison</h5>
-        <table class="kpi-table">
-            <tr><th>Requisito</th><th>Edison atende?</th></tr>
-            <tr><td>Power BI / visualização de dados</td><td>✅ Sim – experiência na C&C e Sodimac</td></tr>
-            <tr><td>Conhecimento em KPIs e métricas</td><td>✅ Sim – varejo, vendas, estoque</td></tr>
-            <tr><td>Metodologias de melhoria contínua</td><td>✅ Sim – Lean, 5S, análise de causas</td></tr>
-            <tr><td>Noções de processos contábeis/fiscais</td><td>⚠️ Parcial – formação em Contábeis, mas sem prática; aprenderá rápido</td></tr>
-            <tr><td>Excel intermediário/avançado</td><td>✅ Sim</td></tr>
-        </table>
+        <div class="table-responsive">
+            <table>
+                <tr><th>Requisito</th><th>Edison atende?</th></tr>
+                <tr><td>Power BI / visualização de dados</td><td>✅ Sim – experiência na C&C e Sodimac</td></tr>
+                <tr><td>Conhecimento em KPIs e métricas</td><td>✅ Sim – varejo, vendas, estoque</td></tr>
+                <tr><td>Metodologias de melhoria contínua</td><td>✅ Sim – Lean, 5S, análise de causas</td></tr>
+                <tr><td>Noções de processos contábeis/fiscais</td><td>⚠️ Parcial – formação em Contábeis, mas sem prática; aprenderá rápido</td></tr>
+                <tr><td>Excel intermediário/avançado</td><td>✅ Sim</td></tr>
+            </table>
+        </div>
 
         <h5>Soft Skills</h5>
         <ul>
@@ -274,12 +333,14 @@
 
         <!-- Opção 2 -->
         <h3>3. Opção 2 – Coordenador de Processos e Qualidade</h3>
-        <table>
-            <tr><th>Item</th><th>Detalhamento</th></tr>
-            <tr><td><strong>Título sugerido</strong></td><td>Coordenador de Processos e Qualidade</td></tr>
-            <tr><td><strong>Reporta a</strong></td><td>Rodrigo (com interface direta com Igor)</td></tr>
-            <tr><td><strong>Missão</strong></td><td>Padronizar e documentar rotinas, garantir a qualidade das entregas e reduzir variabilidade operacional.</td></tr>
-        </table>
+        <div class="table-responsive">
+            <table>
+                <tr><th>Item</th><th>Detalhamento</th></tr>
+                <tr><td><strong>Título sugerido</strong></td><td>Coordenador de Processos e Qualidade</td></tr>
+                <tr><td><strong>Reporta a</strong></td><td>Rodrigo (com interface direta com Igor)</td></tr>
+                <tr><td><strong>Missão</strong></td><td>Padronizar e documentar rotinas, garantir a qualidade das entregas e reduzir variabilidade operacional.</td></tr>
+            </table>
+        </div>
         <h5>Principais Responsabilidades</h5>
         <ul>
             <li>Mapear e documentar processos críticos (onboarding do cliente até a entrega).</li>
@@ -290,14 +351,16 @@
             <li>Acompanhar indicadores de qualidade (índice de erros, retrabalho, satisfação).</li>
         </ul>
         <h5>Hard Skills x Edison</h5>
-        <table>
-            <tr><th>Requisito</th><th>Edison atende?</th></tr>
-            <tr><td>Mapeamento de processos (BPMN)</td><td>⚠️ Parcial – pode aprender rapidamente</td></tr>
-            <tr><td>Metodologias de qualidade (PDCA, 5S)</td><td>✅ Sim – experiência com 5S na C&C</td></tr>
-            <tr><td>Documentação técnica</td><td>✅ Sim – relatórios gerenciais na C&C</td></tr>
-            <tr><td>Ferramentas de gestão (Gestta, Excel)</td><td>⚠️ Aprenderá o Gestta com a equipe</td></tr>
-            <tr><td>Conhecimento contábil básico</td><td>✅ Sim – formação, mas precisará de contexto</td></tr>
-        </table>
+        <div class="table-responsive">
+            <table>
+                <tr><th>Requisito</th><th>Edison atende?</th></tr>
+                <tr><td>Mapeamento de processos (BPMN)</td><td>⚠️ Parcial – pode aprender rapidamente</td></tr>
+                <tr><td>Metodologias de qualidade (PDCA, 5S)</td><td>✅ Sim – experiência com 5S na C&C</td></tr>
+                <tr><td>Documentação técnica</td><td>✅ Sim – relatórios gerenciais na C&C</td></tr>
+                <tr><td>Ferramentas de gestão (Gestta, Excel)</td><td>⚠️ Aprenderá o Gestta com a equipe</td></tr>
+                <tr><td>Conhecimento contábil básico</td><td>✅ Sim – formação, mas precisará de contexto</td></tr>
+            </table>
+        </div>
         <h5>Ganhos</h5>
         <ul>
             <li><strong>Operação previsível</strong> – processos documentados reduzem dependência de pessoas-chave.</li>
@@ -309,12 +372,14 @@
 
         <!-- Opção 3 -->
         <h3>4. Opção 3 – Analista de Experiência do Cliente e CRM</h3>
-        <table>
-            <tr><th>Item</th><th>Detalhamento</th></tr>
-            <tr><td><strong>Título sugerido</strong></td><td>Analista de Experiência do Cliente</td></tr>
-            <tr><td><strong>Reporta a</strong></td><td>Rodrigo (com alinhamento com Igor)</td></tr>
-            <tr><td><strong>Missão</strong></td><td>Estruturar o relacionamento com clientes, medir satisfação e profissionalizar a comunicação.</td></tr>
-        </table>
+        <div class="table-responsive">
+            <table>
+                <tr><th>Item</th><th>Detalhamento</th></tr>
+                <tr><td><strong>Título sugerido</strong></td><td>Analista de Experiência do Cliente</td></tr>
+                <tr><td><strong>Reporta a</strong></td><td>Rodrigo (com alinhamento com Igor)</td></tr>
+                <tr><td><strong>Missão</strong></td><td>Estruturar o relacionamento com clientes, medir satisfação e profissionalizar a comunicação.</td></tr>
+            </table>
+        </div>
         <h5>Responsabilidades</h5>
         <ul>
             <li>Implementar e gerir o protocolo de comunicação (fim do WhatsApp como canal principal).</li>
@@ -325,14 +390,16 @@
             <li>Produzir relatórios de satisfação e recomendações.</li>
         </ul>
         <h5>Hard Skills x Edison</h5>
-        <table>
-            <tr><th>Requisito</th><th>Edison atende?</th></tr>
-            <tr><td>Análise de dados de satisfação</td><td>✅ Sim – SAC Analytics na C&C</td></tr>
-            <tr><td>Ferramentas de CRM</td><td>⚠️ Básico – usará Excel/iniciará com ferramenta simples</td></tr>
-            <tr><td>Pesquisas de satisfação</td><td>✅ Sim – já deve ter aplicado no varejo</td></tr>
-            <tr><td>Conhecimento de processos de atendimento</td><td>✅ Sim – atendimento consultivo</td></tr>
-            <tr><td>Comunicação escrita</td><td>✅ Sim</td></tr>
-        </table>
+        <div class="table-responsive">
+            <table>
+                <tr><th>Requisito</th><th>Edison atende?</th></tr>
+                <tr><td>Análise de dados de satisfação</td><td>✅ Sim – SAC Analytics na C&C</td></tr>
+                <tr><td>Ferramentas de CRM</td><td>⚠️ Básico – usará Excel/iniciará com ferramenta simples</td></tr>
+                <tr><td>Pesquisas de satisfação</td><td>✅ Sim – já deve ter aplicado no varejo</td></tr>
+                <tr><td>Conhecimento de processos de atendimento</td><td>✅ Sim – atendimento consultivo</td></tr>
+                <tr><td>Comunicação escrita</td><td>✅ Sim</td></tr>
+            </table>
+        </div>
         <h5>Ganhos</h5>
         <ul>
             <li><strong>Cliente sabe exatamente a quem recorrer</strong> – fim da confusão e mensagens dispersas.</li>
@@ -344,12 +411,14 @@
 
         <!-- Opção 4 -->
         <h3>5. Opção 4 – Analista de Compliance e Controles Internos</h3>
-        <table>
-            <tr><th>Item</th><th>Detalhamento</th></tr>
-            <tr><td><strong>Título sugerido</strong></td><td>Analista de Compliance e Controles Internos</td></tr>
-            <tr><td><strong>Reporta a</strong></td><td>Rodrigo (com reporte funcional a Igor, se desejado)</td></tr>
-            <tr><td><strong>Missão</strong></td><td>Garantir a integridade dos processos internos, reduzir riscos de não conformidade e apoiar a prevenção de erros.</td></tr>
-        </table>
+        <div class="table-responsive">
+            <table>
+                <tr><th>Item</th><th>Detalhamento</th></tr>
+                <tr><td><strong>Título sugerido</strong></td><td>Analista de Compliance e Controles Internos</td></tr>
+                <tr><td><strong>Reporta a</strong></td><td>Rodrigo (com reporte funcional a Igor, se desejado)</td></tr>
+                <tr><td><strong>Missão</strong></td><td>Garantir a integridade dos processos internos, reduzir riscos de não conformidade e apoiar a prevenção de erros.</td></tr>
+            </table>
+        </div>
         <h5>Responsabilidades</h5>
         <ul>
             <li>Desenvolver e acompanhar controles internos para áreas críticas.</li>
@@ -360,14 +429,16 @@
             <li>Produzir relatórios de conformidade para a diretoria.</li>
         </ul>
         <h5>Hard Skills x Edison</h5>
-        <table>
-            <tr><th>Requisito</th><th>Edison atende?</th></tr>
-            <tr><td>Noções de compliance e controles internos</td><td>⚠️ Parcial – pode aprender com cursos rápidos</td></tr>
-            <tr><td>Análise de dados e indicadores</td><td>✅ Sim</td></tr>
-            <tr><td>Conhecimento contábil/fiscal básico</td><td>✅ Sim – formação em Contábeis</td></tr>
-            <tr><td>Ferramentas de auditoria</td><td>⚠️ Aprenderá com a prática</td></tr>
-            <tr><td>Metodologias de análise de causa</td><td>✅ Sim – aplicou na C&C</td></tr>
-        </table>
+        <div class="table-responsive">
+            <table>
+                <tr><th>Requisito</th><th>Edison atende?</th></tr>
+                <tr><td>Noções de compliance e controles internos</td><td>⚠️ Parcial – pode aprender com cursos rápidos</td></tr>
+                <tr><td>Análise de dados e indicadores</td><td>✅ Sim</td></tr>
+                <tr><td>Conhecimento contábil/fiscal básico</td><td>✅ Sim – formação em Contábeis</td></tr>
+                <tr><td>Ferramentas de auditoria</td><td>⚠️ Aprenderá com a prática</td></tr>
+                <tr><td>Metodologias de análise de causa</td><td>✅ Sim – aplicou na C&C</td></tr>
+            </table>
+        </div>
         <h5>Ganhos</h5>
         <ul>
             <li><strong>Redução de riscos de erros fiscais e contábeis</strong> que poderiam gerar multas.</li>
@@ -378,16 +449,18 @@
 
         <!-- Comparativo -->
         <h3>6. Comparativo das Opções</h3>
-        <table class="comparativo">
-            <tr><th>Critério</th><th>Opção 1<br>Inteligência Operacional</th><th>Opção 2<br>Processos e Qualidade</th><th>Opção 3<br>Experiência do Cliente</th><th>Opção 4<br>Compliance</th></tr>
-            <tr><td>Aderência ao perfil Edison</td><td class="stars">⭐⭐⭐⭐⭐</td><td class="stars">⭐⭐⭐⭐</td><td class="stars">⭐⭐⭐⭐</td><td class="stars">⭐⭐⭐</td></tr>
-            <tr><td>Impacto imediato nos gargalos</td><td class="stars">⭐⭐⭐⭐⭐ (dá visibilidade)</td><td class="stars">⭐⭐⭐⭐ (documenta)</td><td class="stars">⭐⭐⭐ (melhora comunicação)</td><td class="stars">⭐⭐⭐ (reduz riscos)</td></tr>
-            <tr><td>Complexidade de implementação</td><td>Média</td><td>Média</td><td>Baixa</td><td>Média-Alta</td></tr>
-            <tr><td>Desenvolvimento necessário</td><td>Baixo</td><td>Médio</td><td>Baixo</td><td>Médio</td></tr>
-            <tr><td>Potencial de crescimento</td><td>Alto</td><td>Alto</td><td>Médio</td><td>Alto</td></tr>
-            <tr><td>Alívio imediato para Rodrigo</td><td class="stars">⭐⭐⭐⭐⭐</td><td class="stars">⭐⭐⭐</td><td class="stars">⭐⭐⭐</td><td class="stars">⭐⭐⭐⭐</td></tr>
-            <tr><td>Alívio para Igor</td><td class="stars">⭐⭐⭐⭐</td><td class="stars">⭐⭐⭐</td><td class="stars">⭐⭐⭐⭐</td><td class="stars">⭐⭐⭐</td></tr>
-        </table>
+        <div class="table-responsive">
+            <table class="comparativo">
+                <tr><th>Critério</th><th>Opção 1<br><small>Inteligência Operacional</small></th><th>Opção 2<br><small>Processos e Qualidade</small></th><th>Opção 3<br><small>Experiência do Cliente</small></th><th>Opção 4<br><small>Compliance</small></th></tr>
+                <tr><td>Aderência ao perfil Edison</td><td class="stars">⭐⭐⭐⭐⭐</td><td class="stars">⭐⭐⭐⭐</td><td class="stars">⭐⭐⭐⭐</td><td class="stars">⭐⭐⭐</td></tr>
+                <tr><td>Impacto imediato nos gargalos</td><td class="stars">⭐⭐⭐⭐⭐ (dá visibilidade)</td><td class="stars">⭐⭐⭐⭐ (documenta)</td><td class="stars">⭐⭐⭐ (melhora comunicação)</td><td class="stars">⭐⭐⭐ (reduz riscos)</td></tr>
+                <tr><td>Complexidade de implementação</td><td>Média</td><td>Média</td><td>Baixa</td><td>Média-Alta</td></tr>
+                <tr><td>Desenvolvimento necessário</td><td>Baixo</td><td>Médio</td><td>Baixo</td><td>Médio</td></tr>
+                <tr><td>Potencial de crescimento</td><td>Alto</td><td>Alto</td><td>Médio</td><td>Alto</td></tr>
+                <tr><td>Alívio imediato para Rodrigo</td><td class="stars">⭐⭐⭐⭐⭐</td><td class="stars">⭐⭐⭐</td><td class="stars">⭐⭐⭐</td><td class="stars">⭐⭐⭐⭐</td></tr>
+                <tr><td>Alívio para Igor</td><td class="stars">⭐⭐⭐⭐</td><td class="stars">⭐⭐⭐</td><td class="stars">⭐⭐⭐⭐</td><td class="stars">⭐⭐⭐</td></tr>
+            </table>
+        </div>
 
         <!-- Recomendação Final -->
         <h3>7. Recomendação Final e Próximos Passos</h3>
@@ -411,27 +484,29 @@
 
         <!-- Anexo -->
         <h3>8. Anexo – Plano de Onboarding 90 dias (Opção 1)</h3>
-        <table>
-            <tr><th>Período</th><th>Foco</th><th>Atividades</th><th>Entregas</th></tr>
-            <tr><td><strong>Semanas 1-4</strong></td><td>Imersão e Mapeamento</td>
-                <td>• Reuniões individuais com Igor, Rodrigo e líderes<br>• Conhecer sistemas (Gestta, etc.)<br>• Observar fluxo de trabalho<br>• Identificar dores de clientes e gargalos iniciais</td>
-                <td>• Mapa de relacionamentos<br>• Diagnóstico rápido<br>• Lista de potenciais KPIs</td>
-            </tr>
-            <tr><td><strong>Semanas 5-8</strong></td><td>Estruturação de Indicadores</td>
-                <td>• Definir 3-5 KPIs por departamento<br>• Criar coleta sistemática de dados<br>• Desenvolver dashboards no Power BI<br>• Treinar líderes no uso</td>
-                <td>• Dashboards departamentais<br>• Dashboard consolidado para Rodrigo<br>• Rotina de reuniões de indicadores</td>
-            </tr>
-            <tr><td><strong>Semanas 9-12</strong></td><td>Melhoria Contínua</td>
-                <td>• Analisar primeiros dados e identificar gargalos<br>• Propor ações corretivas<br>• Ajustar dashboards com feedback<br>• Iniciar análise de causas de retrabalho</td>
-                <td>• Relatório "Top 3 Gargalos"<br>• Plano de ações<br>• Roadmap para próximos 90 dias</td>
-            </tr>
-        </table>
+        <div class="table-responsive">
+            <table>
+                <tr><th>Período</th><th>Foco</th><th>Atividades</th><th>Entregas</th></tr>
+                <tr><td><strong>Semanas 1-4</strong></td><td>Imersão e Mapeamento</td>
+                    <td>• Reuniões individuais com Igor, Rodrigo e líderes<br>• Conhecer sistemas (Gestta, etc.)<br>• Observar fluxo de trabalho<br>• Identificar dores de clientes e gargalos iniciais</td>
+                    <td>• Mapa de relacionamentos<br>• Diagnóstico rápido<br>• Lista de potenciais KPIs</td>
+                </tr>
+                <tr><td><strong>Semanas 5-8</strong></td><td>Estruturação de Indicadores</td>
+                    <td>• Definir 3-5 KPIs por departamento<br>• Criar coleta sistemática de dados<br>• Desenvolver dashboards no Power BI<br>• Treinar líderes no uso</td>
+                    <td>• Dashboards departamentais<br>• Dashboard consolidado para Rodrigo<br>• Rotina de reuniões de indicadores</td>
+                </tr>
+                <tr><td><strong>Semanas 9-12</strong></td><td>Melhoria Contínua</td>
+                    <td>• Analisar primeiros dados e identificar gargalos<br>• Propor ações corretivas<br>• Ajustar dashboards com feedback<br>• Iniciar análise de causas de retrabalho</td>
+                    <td>• Relatório "Top 3 Gargalos"<br>• Plano de ações<br>• Roadmap para próximos 90 dias</td>
+                </tr>
+            </table>
+        </div>
     </div>
 
     <div class="footer">
         <p><strong>Preparado por:</strong> Gestor de Carreiras Sênior</p>
         <p>Fevereiro/2026</p>
-        <p style="margin-top:15px; font-size:12px; opacity:0.6;">Documento confidencial – alinhado à identidade visual da Integrity Contábil.</p>
+        <p style="margin-top:15px; font-size:0.8rem; opacity:0.6;">Documento confidencial – alinhado à identidade visual da Integrity Contábil.</p>
     </div>
 </div>
 </body>
